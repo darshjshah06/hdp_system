@@ -20,6 +20,7 @@ def run_sql_script(path: str):
         conn.execute(text(sql))
 
 if __name__ == "__main__":
+    
     # 1. Load CSV to patients_raw
     load_csv_to_patients_raw("data/raw/heart.csv")
 

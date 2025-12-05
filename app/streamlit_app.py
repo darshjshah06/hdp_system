@@ -12,7 +12,7 @@ from sqlalchemy import text
 from src.hdp_system.db import get_engine
 
 
-# ================================
+
 # Model + Feature Configuration
 # ================================
 
@@ -38,7 +38,7 @@ FEATURE_COLS = [
 ALL_MODEL_COLS = ["age_group"] + FEATURE_COLS
 
 
-# ================================
+
 # Helper Functions
 # ================================
 
@@ -122,8 +122,6 @@ def generate_recommendations(data, pred, proba):
 
     return recs
 
-
-# ================================
 # Streamlit App UI
 # ================================
 
@@ -134,7 +132,6 @@ def main():
         "This model was built using clinical features and trained through a reproducible ML pipeline."
     )
 
-    # -----------------------
     # Input Form
     # -----------------------
     st.subheader("Patient Information")
@@ -178,7 +175,6 @@ def main():
         "thal": thal,
     }
 
-    # -----------------------
     # Prediction
     # -----------------------
     if st.button("Predict"):
@@ -200,7 +196,6 @@ def main():
         # Log prediction
         log_prediction_to_db(input_data, pred, proba)
 
-        # -----------------------
         # Clinical Recommendations
         # -----------------------
         st.subheader("🩺 Personalized Recommendations")
@@ -209,7 +204,6 @@ def main():
         for r in recs:
             st.write(r)
 
-        # -----------------------
         # Disclaimer
         # -----------------------
         st.markdown("---")

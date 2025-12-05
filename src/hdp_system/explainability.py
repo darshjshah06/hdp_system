@@ -19,7 +19,7 @@ def explain_instance(input_array):
     model = joblib.load(BEST_MODEL_PATH)
 
     def f(X):
-        # X is raw feature array; we need to ensure it goes through pipeline
+        # X is raw feature array, we need to ensure it goes through pipeline
         return model.predict_proba(X)[:, 1]
 
     background = np.load(BACKGROUND_DATA_PATH)
@@ -27,3 +27,5 @@ def explain_instance(input_array):
 
     shap_values = explainer.shap_values(input_array)
     return shap_values
+
+    # By Darsh

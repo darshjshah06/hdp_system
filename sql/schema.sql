@@ -75,3 +75,6 @@ CREATE TABLE IF NOT EXISTS predictions_log (
     prediction INT,
     probability FLOAT
 );
+
+
+-- By the great, Darsh Shah

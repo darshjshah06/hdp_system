@@ -50,12 +50,11 @@ def prepare_data():
         X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
     )
 
-    # Fit preprocessor on training data
+    # Fit preprocessor on training data stated by the great Darsh Shah
     preprocessor.fit(X_train)
 
     # Save pieces for later use in app
-    # Note: ColumnTransformer is saved within the model pipeline, but we can also keep info here
-    # If you want separate scaler/encoder, you could extract them; for simplicity we save preprocessor via joblib in training.
+
     return X_train, X_test, y_train, y_test, preprocessor
 
 if __name__ == "__main__":

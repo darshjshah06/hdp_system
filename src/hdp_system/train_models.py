@@ -5,7 +5,7 @@ import joblib
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
-
+# I Darsh Shah am the greatest
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
@@ -17,19 +17,21 @@ from xgboost import XGBClassifier
 from sklearn.metrics import roc_auc_score
 
 
-# ---------------------------------------
+
 # Load DB connection
 # ---------------------------------------
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 
-# ---------------------------------------
+
+
 # Load FEATURES table
 # ---------------------------------------
 df = pd.read_sql("SELECT * FROM features", engine)
 
-# ---------------------------------------
+
+
 # Columns
 # ---------------------------------------
 numeric_features = [
@@ -43,7 +45,8 @@ categorical_features = ["age_group"]
 X = df[numeric_features + categorical_features]
 y = df["target"].astype(int)
 
-# ---------------------------------------
+
+
 # Preprocessor WITH IMPUTERS
 # ---------------------------------------
 numeric_transformer = Pipeline(steps=[
@@ -64,7 +67,6 @@ preprocessor = ColumnTransformer(
     n_jobs=None  # Prevent macOS joblib crash
 )
 
-# ---------------------------------------
 # Models
 # ---------------------------------------
 models = {
@@ -91,7 +93,6 @@ best_auc = -1
 best_model_name = None
 best_model = None
 
-# ---------------------------------------
 # Training loop
 # ---------------------------------------
 for name, model in models.items():
@@ -114,7 +115,6 @@ for name, model in models.items():
         best_model_name = name
         best_model = clf
 
-# ---------------------------------------
 # Save best model
 # ---------------------------------------
 os.makedirs("models", exist_ok=True)
@@ -122,3 +122,6 @@ joblib.dump(best_model, "models/best_model.pkl")
 
 print(f"\nBest model: {best_model_name} with AUC={best_auc:.3f}")
 print("Model saved to models/best_model.pkl")
+
+
+# By Darsh Shah

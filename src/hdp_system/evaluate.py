@@ -12,7 +12,6 @@ from sklearn.metrics import (
     classification_report
 )
 
-# ---------------------------------------
 # Load DB + model
 # ---------------------------------------
 load_dotenv()
@@ -31,4 +30,4 @@ categorical_features = ["age_group"]
 X = df[numeric_features + categorical_features]
 y = df["target"].astype(int)
 
-#
+# By Darsh
