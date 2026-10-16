@@ -135,3 +135,15 @@ Scikit-Learn
 XGBoost
 Pandas
 NumPy
+
+
+
+🔁 Daily Auto-Commit
+
+tools/autocommit/ commits and pushes any pending changes once a day (19:00, via a macOS launchd agent). It cycles through 5 short commit messages in order. If nothing changed, it does nothing.
+
+./tools/autocommit/install.sh             # install / reinstall
+./tools/autocommit/install.sh uninstall   # remove
+./tools/autocommit/autocommit.sh          # run once by hand
+
+Log: ~/Library/Logs/hdp-system-autocommit.log. Edit the MESSAGES list in autocommit.sh to change the wording.
