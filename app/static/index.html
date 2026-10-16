@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Heart Disease Prediction System</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23ff2d87%22 d=%22M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.2 0 3.6 1.2 5.2 3 1.6-1.8 3-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <svg class="hero-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.2 0 3.6 1.2 5.2 3 1.6-1.8 3-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>
+    <h1>Heart Disease Prediction</h1>
+    <p>Enter patient information to estimate heart disease risk and get simple wellness suggestions.</p>
+  </header>
+
+  <main class="layout">
+    <form id="form" class="form" novalidate>
+      <!-- Sections and fields are built by app.js from FIELDS. -->
+      <div id="sections"></div>
+      <button type="submit" id="predict" class="primary">Estimate Risk</button>
+    </form>
+
+    <aside class="result-col">
+      <section id="result" class="card result" aria-live="polite">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-track" cx="60" cy="60" r="52"/>
+            <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"/>
+          </svg>
+          <div class="ring-label">
+            <span id="pct" class="pct">—</span>
+            <span class="pct-caption">estimated risk</span>
+          </div>
+        </div>
+        <div id="level" class="level">Fill in the form and press Estimate Risk.</div>
+        <div id="error" class="error" hidden></div>
+        <div id="recs-wrap" hidden>
+          <h2>Suggestions</h2>
+          <ul id="recs" class="recs"></ul>
+        </div>
+      </section>
+      <p class="disclaimer">
+        For educational and demonstration purposes only. Don't rely on it for medical
+        decisions or diagnosis. For real clinical concerns, consult a licensed healthcare
+        professional.<br>Created by Darsh J. Shah
+      </p>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

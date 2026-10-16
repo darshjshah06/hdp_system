@@ -8,5 +8,4 @@ joblib
 matplotlib
 seaborn
 shap
-streamlit
 python-dotenv

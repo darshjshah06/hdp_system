@@ -5,7 +5,7 @@ Loads & preprocesses heart disease clinical data
 Stores cleaned data and engineered features in PostgreSQL
 Trains ML models (Logistic Regression, RandomForest, XGBoost)
 Selects & saves the best model
-Provides an interactive Streamlit web app for real-time prediction
+Provides a dark, Apple-style web app for real-time prediction
 Logs prediction history into the database
 Generates personalized clinical recommendations
 Includes disclaimer and polished UI
@@ -23,8 +23,8 @@ Database-Backed System
 PostgreSQL stores raw, cleaned, engineered data
 
 Prediction events logged in predictions_log
-Streamlit Web Application
-Clean UI
+Web Application
+Dark, Apple-style UI with a hot pink accent
 Real-time predictions
 Personalized recommendation engine
 Disclaimer for safe usage
@@ -42,12 +42,14 @@ Full sklearn pipeline with preprocessing
 hdp_system/
 │
 ├── app/
-│   └── streamlit_app.py          # Web UI
+│   ├── server.py                 # Web server + /api/predict
+│   └── static/                   # UI: index.html, style.css, app.js
 │
 ├── src/hdp_system/
 │   ├── data_ingestion.py         # Load → clean → engineer SQL features
 │   ├── train_models.py           # Train + evaluate + save best model
 │   ├── evaluate.py               # Extra metrics + plot
+│   ├── predict.py                # Validation, risk level, recommendations, logging
 │   ├── db.py                     # DB connection helper
 │   └── config.py                 # Paths & env management
 │
@@ -90,7 +92,7 @@ python3 -m src.hdp_system.train_models
 
 python3 -m src.hdp_system.evaluate
 
-streamlit run app/streamlit_app.py
+python3 app/server.py               # then open http://localhost:8501
 
 
 
@@ -126,9 +128,10 @@ This project is for educational purposes only.
 📦 Technologies Used
 
 Python 3.10+
-Streamlit
+HTML/CSS/JavaScript (no framework)
 PostgretQL
 SQLAlchemy
 Scikit-Learn
 XGBoost
-Pandas / NumPy
+Pandas
+NumPy
