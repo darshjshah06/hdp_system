@@ -140,7 +140,7 @@ NumPy
 
 🔁 Daily Auto-Commit
 
-tools/autocommit/ commits and pushes any pending changes once a day (19:00, via a macOS launchd agent). It cycles through 5 short commit messages in order. If nothing changed, it does nothing.
+tools/autocommit/ commits and pushes once a day (19:00, via a macOS launchd agent). The commit message is picked at random from 5 short messages (never the same twice in a row). If nothing changed, it makes an empty commit so there is still one every day.
 
 ./tools/autocommit/install.sh             # install / reinstall
 ./tools/autocommit/install.sh uninstall   # remove
